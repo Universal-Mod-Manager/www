@@ -1,0 +1,48 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Button from '~/components/ui/Button.astro';
+
+import { URLS } from '~/data/site';
+
+const metadata = {
+  title: 'Security',
+};
+
+const points = [
+  {
+    title: 'Open source',
+    description:
+      'The full source code is public on GitHub. Anyone can read, audit and verify exactly what the app does. Nothing is hidden.',
+    icon: 'tabler:eye',
+  },
+  {
+    title: 'Verified downloads',
+    description:
+      'Every build is published through official GitHub releases, so you always know a download comes from us and has not been tampered with.',
+    icon: 'tabler:discount-check',
+  },
+  {
+    title: 'Sandboxed plugins',
+    description:
+      'Game support comes from plugins that run sandboxed: they can only perform a fixed set of predefined actions, with no arbitrary code execution and no web requests.',
+    icon: 'tabler:shield-lock',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <Features
+    title="Security"
+    subtitle="Universal Mod Manager is built to be trustworthy. Here's how."
+    columns={3}
+    items={points}
+  />
+
+  <CallToAction title="Read the code yourself" subtitle="It's all open on GitHub.">
+    <div slot="actions" class="flex justify-center">
+      <Button variant="primary" href={URLS.repo} target="_blank" icon="tabler:brand-github">View source</Button>
+    </div>
+  </CallToAction>
+</Layout>

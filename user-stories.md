@@ -11,7 +11,8 @@
 - As a visitor, I want to see a landing page introducing the project, so I can understand what the app does and decide if I want to download it.
 
 **Acceptance Criteria:**
-- [ ] Landing page created
+
+- [x] Landing page created
 
 ---
 
@@ -20,7 +21,8 @@
 - As a user, I want to download the app from the website, so I can get the latest version easily.
 
 **Acceptance Criteria:**
-- [ ] Link download button with GitHub releases
+
+- [x] Link download button with GitHub releases
 
 ---
 
@@ -29,7 +31,8 @@
 - As a user, I want to see the latest changes, so I know what's new in each version.
 
 **Acceptance Criteria:**
-- [ ] Link changelog with GitHub release changelog
+
+- [x] Link changelog with GitHub release changelog
 
 ---
 
@@ -38,7 +41,8 @@
 - As a visitor, I want to see what the app can do, so I know if it fits my needs.
 
 **Acceptance Criteria:**
-- [ ] Features page with list of capabilities
+
+- [x] Features page with list of capabilities
 
 ---
 
@@ -47,7 +51,8 @@
 - As a new user, I want clear instructions on how to install the app, so I can start using it quickly.
 
 **Acceptance Criteria:**
-- [ ] Installation guide for each supported platform
+
+- [x] Installation guide for each supported platform
 
 ---
 
@@ -56,6 +61,6 @@
 - As a security-conscious user, I want to know the app is safe, so I can use it with confidence.
 
 **Acceptance Criteria:**
-- [ ] Mention open source nature (verifiable code)
-- [ ] Link to verified downloads via GitHub releases
- 
+
+- [x] Mention open source nature (verifiable code)
+- [x] Link to verified downloads via GitHub releases

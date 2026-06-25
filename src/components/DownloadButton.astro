@@ -1,0 +1,24 @@
+---
+import Button from '~/components/ui/Button.astro';
+import type { Release } from '~/lib/github';
+import { URLS } from '~/data/site';
+
+interface Props {
+  release: Release | null;
+  class?: string;
+}
+
+const { release, class: className } = Astro.props;
+---
+
+{
+  release ? (
+    <Button variant="primary" href={release.url} target="_blank" icon="tabler:download" class={className}>
+      Download {release.tag}
+    </Button>
+  ) : (
+    <Button variant="secondary" href={URLS.releases} target="_blank" icon="tabler:bell" class={className}>
+      Coming soon - watch releases
+    </Button>
+  )
+}
