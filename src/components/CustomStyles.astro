@@ -2,15 +2,6 @@
 import '@fontsource-variable/inter';
 ---
 
-<!--
-  Bridge: the AstroWind / Tailwind components read `--aw-*` and `--ui-*`
-  variables; we point those at the desktop `--umm-*` tokens defined in
-  `~/assets/styles/umm/base.css` (and overridable by theme files). This is
-  what makes the site adopt the desktop look without touching components.
-
-  The desktop base theme is a single (light) palette, so `--aw-*` derives
-  from the same `--umm-*` tokens regardless of the `.dark` class.
--->
 <style is:inline>
   :root {
     --aw-font-sans: var(--umm-font);
