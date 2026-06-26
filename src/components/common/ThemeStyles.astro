@@ -1,0 +1,12 @@
+---
+import { THEMES } from '~/data/themes';
+
+// Each override theme is a desktop-style CSS file using the `:root` selector.
+// Scope it under `[data-theme='id']` so switching the attribute swaps palettes
+// without a reload. The base theme ("default") has no override CSS.
+const css = THEMES.filter((theme) => theme.css)
+  .map((theme) => theme.css.replace(/:root\b/g, `[data-theme='${theme.id}']`))
+  .join('\n');
+---
+
+<style is:inline set:html={css}></style>

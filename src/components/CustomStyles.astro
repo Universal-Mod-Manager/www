@@ -1,63 +1,37 @@
 ---
 import '@fontsource-variable/inter';
-
-// 'DM Sans'
-// Nunito
-// Dosis
-// Outfit
-// Roboto
-// Literata
-// 'IBM Plex Sans'
-// Karla
-// Poppins
-// 'Fira Sans'
-// 'Libre Franklin'
-// Inconsolata
-// Raleway
-// Oswald
-// 'Space Grotesk'
-// Urbanist
 ---
 
+<!--
+  Bridge: the AstroWind / Tailwind components read `--aw-*` and `--ui-*`
+  variables; we point those at the desktop `--umm-*` tokens defined in
+  `~/assets/styles/umm/base.css` (and overridable by theme files). This is
+  what makes the site adopt the desktop look without touching components.
+
+  The desktop base theme is a single (light) palette, so `--aw-*` derives
+  from the same `--umm-*` tokens regardless of the `.dark` class.
+-->
 <style is:inline>
   :root {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    --aw-font-sans: var(--umm-font);
+    --aw-font-serif: var(--umm-font);
+    --aw-font-heading: var(--umm-font);
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    --aw-color-primary: var(--umm-primary);
+    --aw-color-secondary: var(--umm-primary-hover);
+    --aw-color-accent: var(--umm-primary);
 
-    --aw-color-text-heading: rgb(0 0 0);
-    --aw-color-text-default: rgb(16 16 16);
-    --aw-color-text-muted: rgb(16 16 16 / 66%);
-    --aw-color-bg-page: rgb(255 255 255);
+    --aw-color-text-heading: var(--umm-text);
+    --aw-color-text-default: var(--umm-text);
+    --aw-color-text-muted: var(--umm-text-secondary);
+    --aw-color-bg-page: var(--umm-bg);
+    --aw-color-bg-page-dark: var(--umm-bg);
 
-    --aw-color-bg-page-dark: rgb(3 6 32);
-
-    ::selection {
-      background-color: lavender;
-    }
-  }
-
-  .dark {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
-
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
-
-    --aw-color-text-heading: rgb(247, 248, 248);
-    --aw-color-text-default: rgb(229 236 246);
-    --aw-color-text-muted: rgb(229 236 246 / 66%);
-    --aw-color-bg-page: rgb(3 6 32);
+    --ui-radius: var(--umm-radius-md);
+    --ui-btn-radius: var(--umm-radius-md);
 
     ::selection {
-      background-color: black;
-      color: snow;
+      background-color: var(--umm-primary-tint);
     }
   }
 </style>

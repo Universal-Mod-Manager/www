@@ -1,0 +1,10 @@
+---
+import { THEMES, THEME_STORAGE_KEY, DEFAULT_THEME } from '~/data/themes';
+
+const ids = THEMES.map((theme) => theme.id);
+---
+
+<script is:inline define:vars={{ storageKey: THEME_STORAGE_KEY, fallback: DEFAULT_THEME, ids }}>
+  const stored = localStorage.getItem(storageKey);
+  document.documentElement.dataset.theme = stored && ids.includes(stored) ? stored : fallback;
+</script>
