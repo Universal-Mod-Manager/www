@@ -8,20 +8,20 @@ on:
 
 env:
   NODE_VERSION: "24"
+  PNPM_VERSION: "latest"
 
 jobs:
-  build:
+  lint:
+    name: Lint & Check
     runs-on: self-hosted
-
     steps:
       - uses: actions/checkout@v4
 
       - uses: pnpm/action-setup@v4
         with:
-          version: latest
+          version: ${{ env.PNPM_VERSION }}
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: "pnpm"
@@ -33,5 +33,45 @@ jobs:
       - name: Lint & Check
         run: pnpm check
 
+  build:
+    name: Build
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "pnpm"
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Cache build output
+        uses: actions/cache@v4
+        with:
+          path: dist
+          key: build-${{ github.sha }}
+          restore-keys: build-
+
       - name: Build
         run: pnpm build
+
+  ci:
+    name: CI
+    runs-on: self-hosted
+    needs: [lint, build]
+    if: always()
+    steps:
+      - name: Check all jobs passed
+        run: |
+          if [[ "${{ needs.lint.result }}" != "success" || "${{ needs.build.result }}" != "success" ]]; then
+            echo "One or more jobs failed"
+            exit 1
+          fi
+          echo "All jobs passed"
