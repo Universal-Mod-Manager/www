@@ -1,0 +1,38 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Platforms from '~/components/widgets/Platforms.astro';
+import DownloadButton from '~/components/DownloadButton.astro';
+
+import { URLS, PLATFORM_ICONS } from '~/data/site';
+import { getLatestRelease } from '~/lib/github';
+import { locales, getLocale } from '~/i18n';
+import type { Locale } from '~/i18n';
+
+export async function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const loc = getLocale(lang);
+const release = await getLatestRelease();
+
+const platforms = loc.install.platforms.map((p, i) => ({ ...p, icon: PLATFORM_ICONS[i] }));
+
+const metadata = { title: loc.install.pageTitle };
+---
+
+<Layout metadata={metadata}>
+  <Platforms title={loc.install.title} subtitle={loc.install.subtitle} columns={2} items={platforms}>
+    <DownloadButton
+      slot="actions"
+      release={release}
+      downloadLabel={loc.download.download}
+      comingSoonLabel={loc.download.comingSoon}
+    />
+
+    {loc.install.olderVersions}{' '}
+    <a href={URLS.releases} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+      {loc.install.fullReleaseHistory}</a
+    >.
+  </Platforms>
+</Layout>

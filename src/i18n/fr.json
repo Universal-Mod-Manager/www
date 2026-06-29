@@ -1,0 +1,143 @@
+{
+  "nav": {
+    "features": "Fonctionnalités",
+    "install": "Installer",
+    "security": "Sécurité",
+    "download": "Télécharger",
+    "footerAppTitle": "Universal Mod Manager",
+    "footerProjectTitle": "Projet",
+    "footerAppOnGithub": "App sur GitHub",
+    "footerReleases": "Versions",
+    "footerIssues": "Problèmes",
+    "footerWebsiteSource": "Source du site",
+    "footerNote": "Open source · Distribué sous ses licences respectives."
+  },
+  "hero": {
+    "tagline": "Universal Mod Manager",
+    "titlePart1": "Un gestionnaire de mods pour",
+    "titleAccent": "chaque jeu",
+    "titlePart2": ", sur chaque plateforme",
+    "subtitle": "Organisez, activez et réordonnez vos mods par jeu sur Windows, macOS, Linux et Steam Deck. Open source et gratuit.",
+    "viewOnGithub": "Voir sur GitHub"
+  },
+  "home": {
+    "featuresTitle": "Ce qu'il fait",
+    "featuresSubtitle": "Tout ce qu'il vous faut pour garder vos mods organisés, au même endroit.",
+    "latestRelease": "Dernière version",
+    "latestReleaseSubtitle": "Découvrez les changements de la version la plus récente.",
+    "seeAllFeatures": "Voir toutes les fonctionnalités",
+    "ctaTitle": "Prêt à ranger vos mods ?",
+    "ctaSubtitle": "Open source, vérifiable et publié via les releases GitHub.",
+    "whyItsSafe": "Pourquoi c'est sûr"
+  },
+  "features": {
+    "pageTitle": "Fonctionnalités",
+    "title": "Fonctionnalités",
+    "subtitle": "Tout ce qu'Universal Mod Manager offre aujourd'hui, plus ce qui est prévu.",
+    "ctaTitle": "Essayez-le",
+    "ctaSubtitle": "Téléchargez la dernière version et commencez à gérer vos mods.",
+    "items": [
+      {
+        "title": "Multi-plateforme",
+        "description": "Une seule application cohérente sur Windows, macOS, Linux et Steam Deck."
+      },
+      {
+        "title": "Listes de mods par jeu",
+        "description": "Gérez une liste de mods dédiée à chaque jeu, bien séparée."
+      },
+      {
+        "title": "Activer et désactiver les mods",
+        "description": "Activez ou désactivez n'importe quel mod sans le supprimer, pour expérimenter librement."
+      },
+      {
+        "title": "Réordonnement par glisser-déposer",
+        "description": "Réordonnez vos mods en les faisant glisser pour obtenir le bon ordre de chargement."
+      },
+      {
+        "title": "Plugin par jeu",
+        "description": "Chaque jeu est supporté par son propre plugin, le support grandit indépendamment."
+      },
+      { "title": "Thèmes", "description": "Personnalisez l'interface avec des thèmes interchangeables." },
+      {
+        "title": "Plugins isolés",
+        "description": "Les plugins s'exécutent en bac à sable : uniquement des actions prédéfinies, pas d'exécution de code arbitraire ni de requêtes web."
+      },
+      {
+        "title": "Synchronisation cloud",
+        "description": "Prévu : gardez votre configuration de mods synchronisée sur tous vos appareils."
+      }
+    ]
+  },
+  "install": {
+    "pageTitle": "Installer",
+    "title": "Installer",
+    "subtitle": "Téléchargez la dernière version, puis suivez les étapes pour votre plateforme. Tous les téléchargements proviennent de la page officielle des releases GitHub.",
+    "olderVersions": "Vous cherchez des versions plus anciennes ? Parcourez",
+    "fullReleaseHistory": "l'historique complet des releases sur GitHub",
+    "platforms": [
+      {
+        "name": "Windows",
+        "steps": [
+          "Téléchargez le dernier installateur Windows (.exe) depuis la page des releases GitHub.",
+          "Lancez l'installateur et suivez les étapes à l'écran.",
+          "Lancez Universal Mod Manager depuis le menu Démarrer."
+        ]
+      },
+      {
+        "name": "macOS",
+        "steps": [
+          "Téléchargez le dernier paquet macOS (.dmg) depuis la page des releases GitHub.",
+          "Ouvrez le .dmg et faites glisser l'application dans votre dossier Applications.",
+          "Lancez-la depuis Applications (autorisez-la dans Réglages Système au premier lancement si demandé)."
+        ]
+      },
+      {
+        "name": "Linux",
+        "steps": [
+          "Téléchargez la dernière version Linux (AppImage) depuis la page des releases GitHub.",
+          "Rendez-la exécutable : chmod +x Universal-Mod-Manager.AppImage",
+          "Lancez-la : ./Universal-Mod-Manager.AppImage"
+        ]
+      },
+      {
+        "name": "Steam Deck",
+        "steps": [
+          "Passez en mode Bureau.",
+          "Téléchargez la dernière version Linux (AppImage) depuis la page des releases GitHub.",
+          "Rendez-la exécutable, lancez-la, puis ajoutez-la à Steam en tant que jeu non-Steam pour le mode Gaming."
+        ]
+      }
+    ]
+  },
+  "security": {
+    "pageTitle": "Sécurité",
+    "title": "Sécurité",
+    "subtitle": "Universal Mod Manager est conçu pour être digne de confiance. Voici comment.",
+    "ctaTitle": "Lisez le code vous-même",
+    "ctaSubtitle": "Tout est ouvert sur GitHub.",
+    "viewSource": "Voir le code source",
+    "points": [
+      {
+        "title": "Open source",
+        "description": "Le code source complet est public sur GitHub. Tout le monde peut lire, auditer et vérifier exactement ce que fait l'application. Rien n'est caché."
+      },
+      {
+        "title": "Téléchargements vérifiés",
+        "description": "Chaque version est publiée via les releases officielles GitHub, vous savez donc toujours qu'un téléchargement vient de nous et n'a pas été altéré."
+      },
+      {
+        "title": "Plugins isolés",
+        "description": "Le support des jeux vient de plugins qui s'exécutent en bac à sable : uniquement un ensemble fixe d'actions prédéfinies, sans exécution de code arbitraire ni requêtes web."
+      }
+    ]
+  },
+  "download": {
+    "download": "Télécharger",
+    "comingSoon": "Bientôt disponible, suivre les releases"
+  },
+  "changelog": {
+    "viewFullChangelog": "Voir le changelog complet sur GitHub",
+    "noRelease": "Aucune version publiée pour l'instant.",
+    "followReleases": "Suivre les releases sur GitHub"
+  }
+}

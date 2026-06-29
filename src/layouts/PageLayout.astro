@@ -1,0 +1,31 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+
+import { getHeaderData, getFooterData } from '~/navigation';
+import { isLocale, defaultLocale } from '~/i18n';
+
+import type { MetaData } from '~/types';
+
+export interface Props {
+  metadata?: MetaData;
+}
+
+const { metadata } = Astro.props;
+
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const lang = isLocale(pathSegments[0]) ? pathSegments[0] : defaultLocale;
+---
+
+<Layout metadata={metadata} lang={lang}>
+  <slot name="header">
+    <Header {...getHeaderData(lang)} isSticky showToggleTheme showThemeSwitcher showLanguageSwitcher />
+  </slot>
+  <main>
+    <slot />
+  </main>
+  <slot name="footer">
+    <Footer {...getFooterData(lang)} />
+  </slot>
+</Layout>

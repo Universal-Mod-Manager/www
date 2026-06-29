@@ -1,0 +1,43 @@
+---
+import { locales, defaultLocale, isLocale } from '~/i18n';
+
+const LABELS: Record<string, string> = { en: 'EN', fr: 'FR' };
+
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const currentLang = isLocale(pathSegments[0]) ? pathSegments[0] : defaultLocale;
+
+const langUrls = Object.fromEntries(
+  locales.map((lang) => {
+    const segments = Astro.url.pathname.split('/');
+    segments[1] = lang;
+    return [lang, segments.join('/')];
+  })
+);
+---
+
+<select
+  data-lang-switcher
+  aria-label="Language"
+  class="ml-1.5 cursor-pointer rounded-md border border-gray-200 bg-transparent px-2 py-1.5 text-sm text-muted focus:outline-none focus:ring-2 focus:ring-gray-200 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-700"
+>
+  {
+    locales.map((lang) => (
+      <option value={langUrls[lang]} selected={lang === currentLang}>
+        {LABELS[lang]}
+      </option>
+    ))
+  }
+</select>
+
+<script is:inline>
+  function initLangSwitcher() {
+    const select = document.querySelector('[data-lang-switcher]');
+    if (!select || select.dataset.initialized) return;
+    select.dataset.initialized = 'true';
+    select.addEventListener('change', () => {
+      window.location.href = select.value;
+    });
+  }
+  initLangSwitcher();
+  document.addEventListener('astro:after-swap', initLangSwitcher);
+</script>

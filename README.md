@@ -1,46 +1,30 @@
-# Astro Starter Kit: Basics
+# Universal Mod Manager Website
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+The showcase / landing website for **Universal Mod Manager (UMM)**, a cross-platform desktop
+mod manager for Windows, macOS, Linux and Steam Deck.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This site introduces the project and points users to the app's downloads. It does not host the
+binaries. Those live on the desktop app's GitHub releases.
 
-## 🚀 Project Structure
+- Desktop app: [Universal-Mod-Manager/desktop](https://github.com/Universal-Mod-Manager/desktop)
 
-Inside of your Astro project, you'll see the following folders and files:
+## Stack
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+Built on the [AstroWind](https://github.com/onwidget/astrowind) template (MIT). Astro 6 ·
+TypeScript · Tailwind CSS v4 · pnpm. Requires **Node ≥ 22.12**.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Commands
 
-## 🧞 Commands
+| Command        | Action                                   |
+| :------------- | :--------------------------------------- |
+| `pnpm install` | Install dependencies                     |
+| `pnpm dev`     | Start the dev server at `localhost:4321` |
+| `pnpm build`   | Build the production site to `./dist/`   |
+| `pnpm preview` | Preview the build locally                |
+| `pnpm check`   | Type-check, lint and format-check        |
 
-All commands are run from the root of the project, from a terminal:
+## More
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+See [CLAUDE.md](CLAUDE.md) for architecture and conventions, and
+[user-stories.md](user-stories.md) for requirements. Template credit: AstroWind
+([LICENSE.md](LICENSE.md), MIT).

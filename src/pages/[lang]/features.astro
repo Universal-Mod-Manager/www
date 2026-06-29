@@ -1,0 +1,37 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import DownloadButton from '~/components/DownloadButton.astro';
+
+import { FEATURE_ICONS } from '~/data/site';
+import { getLatestRelease } from '~/lib/github';
+import { locales, getLocale } from '~/i18n';
+import type { Locale } from '~/i18n';
+
+export async function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const loc = getLocale(lang);
+const release = await getLatestRelease();
+
+const items = loc.features.items.map((item, i) => ({ ...item, icon: FEATURE_ICONS[i] }));
+
+const metadata = { title: loc.features.pageTitle };
+---
+
+<Layout metadata={metadata}>
+  <Features2 title={loc.features.title} subtitle={loc.features.subtitle} columns={3} items={items} />
+
+  <CallToAction title={loc.features.ctaTitle} subtitle={loc.features.ctaSubtitle}>
+    <div slot="actions" class="flex justify-center">
+      <DownloadButton
+        release={release}
+        downloadLabel={loc.download.download}
+        comingSoonLabel={loc.download.comingSoon}
+      />
+    </div>
+  </CallToAction>
+</Layout>

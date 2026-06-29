@@ -1,0 +1,33 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Button from '~/components/ui/Button.astro';
+
+import { URLS, SECURITY_ICONS } from '~/data/site';
+import { locales, getLocale } from '~/i18n';
+import type { Locale } from '~/i18n';
+
+export async function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const loc = getLocale(lang);
+
+const points = loc.security.points.map((p, i) => ({ ...p, icon: SECURITY_ICONS[i] }));
+
+const metadata = { title: loc.security.pageTitle };
+---
+
+<Layout metadata={metadata}>
+  <Features title={loc.security.title} subtitle={loc.security.subtitle} columns={3} items={points} />
+
+  <CallToAction title={loc.security.ctaTitle} subtitle={loc.security.ctaSubtitle}>
+    <div slot="actions" class="flex justify-center">
+      <Button variant="primary" href={URLS.repo} target="_blank" icon="tabler:brand-github">
+        {loc.security.viewSource}
+      </Button>
+    </div>
+  </CallToAction>
+</Layout>
