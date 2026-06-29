@@ -110,7 +110,7 @@
   background: #3d4654;
 }
 
-.umm-toggle[data-state="checked"] {
+.umm-toggle[data-state='checked'] {
   background: linear-gradient(180deg, #5c7e10 0%, #4d8b2e 100%);
 }
 

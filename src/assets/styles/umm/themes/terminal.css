@@ -43,7 +43,7 @@ body {
 }
 
 .umm-sidebar-title::before {
-  content: "> ";
+  content: '> ';
   color: #00ff41;
 }
 
@@ -53,7 +53,7 @@ body {
 }
 
 .umm-sidebar-section-label::before {
-  content: "// ";
+  content: '// ';
   color: #006b1d;
 }
 
@@ -67,7 +67,7 @@ body {
 }
 
 .umm-content-title::before {
-  content: "$ ";
+  content: '$ ';
   color: #006b1d;
   font-weight: 400;
 }
@@ -95,7 +95,7 @@ body {
 }
 
 .umm-mod-list-item-name::before {
-  content: "├─ ";
+  content: '├─ ';
   color: #006b1d;
 }
 
@@ -134,7 +134,7 @@ body {
   border-radius: 0;
 }
 
-.umm-toggle[data-state="checked"] {
+.umm-toggle[data-state='checked'] {
   background: #003b10;
   border-color: #00ff41;
 }

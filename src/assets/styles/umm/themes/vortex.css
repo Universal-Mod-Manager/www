@@ -150,7 +150,7 @@
   background: #424442;
 }
 
-.umm-select-item[data-state="checked"] {
+.umm-select-item[data-state='checked'] {
   color: #d78f46;
   background: rgba(215, 143, 70, 0.08);
 }
@@ -162,7 +162,7 @@
   height: 18px;
 }
 
-.umm-toggle[data-state="checked"] {
+.umm-toggle[data-state='checked'] {
   background: #86b951;
 }
 
@@ -173,6 +173,6 @@
   box-shadow: none;
 }
 
-.umm-toggle[data-state="checked"] .umm-toggle-thumb {
+.umm-toggle[data-state='checked'] .umm-toggle-thumb {
   transform: translateX(18px);
 }

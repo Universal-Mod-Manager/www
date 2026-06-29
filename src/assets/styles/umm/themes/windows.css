@@ -24,7 +24,7 @@
   --umm-radius-lg: 8px;
   --umm-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.14), 0 1px 2px rgba(0, 0, 0, 0.14);
   --umm-shadow-md: 0 1px 2px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.14);
-  --umm-shadow-lg: 0 2px 8px rgba(0, 0, 0, 0.20), 0 8px 24px rgba(0, 0, 0, 0.20);
+  --umm-shadow-lg: 0 2px 8px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.2);
   --umm-font: 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif;
   --umm-font-mono: 'Cascadia Code', 'Consolas', monospace;
   --umm-border-rule: 1px solid var(--umm-border);
@@ -112,7 +112,9 @@
 .umm-select-content {
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.20), 0 8px 24px rgba(0, 0, 0, 0.20);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .umm-select-item {
@@ -124,7 +126,7 @@
   background: #f5f5f5;
 }
 
-.umm-select-item[data-state="checked"] {
+.umm-select-item[data-state='checked'] {
   background: #ececec;
 }
 
@@ -133,7 +135,7 @@
   border-radius: 10px;
 }
 
-.umm-toggle[data-state="checked"] {
+.umm-toggle[data-state='checked'] {
   background: #005a9e;
 }
 
