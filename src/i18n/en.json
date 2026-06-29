@@ -1,0 +1,137 @@
+{
+  "nav": {
+    "features": "Features",
+    "install": "Install",
+    "security": "Security",
+    "download": "Download",
+    "footerAppTitle": "Universal Mod Manager",
+    "footerProjectTitle": "Project",
+    "footerAppOnGithub": "App on GitHub",
+    "footerReleases": "Releases",
+    "footerIssues": "Issues",
+    "footerWebsiteSource": "Website source",
+    "footerNote": "Open source · Released under its respective licenses."
+  },
+  "hero": {
+    "tagline": "Universal Mod Manager",
+    "titlePart1": "One mod manager for",
+    "titleAccent": "every game",
+    "titlePart2": ", on every platform",
+    "subtitle": "Organise, enable and reorder your mods per game on Windows, macOS, Linux and Steam Deck. Open source and free.",
+    "viewOnGithub": "View on GitHub"
+  },
+  "home": {
+    "featuresTitle": "What it does",
+    "featuresSubtitle": "Everything you need to keep your mods organised, in one place.",
+    "latestRelease": "Latest release",
+    "latestReleaseSubtitle": "See what changed in the most recent version.",
+    "seeAllFeatures": "See all features",
+    "ctaTitle": "Ready to tidy up your mods?",
+    "ctaSubtitle": "Open source, verifiable and published through GitHub releases.",
+    "whyItsSafe": "Why it's safe"
+  },
+  "features": {
+    "pageTitle": "Features",
+    "title": "Features",
+    "subtitle": "Everything Universal Mod Manager offers today, plus what's planned next.",
+    "ctaTitle": "Give it a try",
+    "ctaSubtitle": "Grab the latest build and start managing your mods.",
+    "items": [
+      { "title": "Cross-platform", "description": "A single, consistent app on Windows, macOS, Linux and Steam Deck." },
+      {
+        "title": "Per-game mod lists",
+        "description": "Manage a dedicated mod list for each game, kept neatly separate."
+      },
+      {
+        "title": "Enable & disable mods",
+        "description": "Toggle any mod on or off without deleting it, so you can experiment freely."
+      },
+      {
+        "title": "Drag & drop ordering",
+        "description": "Reorder your mods by dragging them to get the load order just right."
+      },
+      {
+        "title": "Plugin per game",
+        "description": "Each game is supported by its own plugin, so support grows independently."
+      },
+      { "title": "Themes", "description": "Make the interface yours with swappable themes." },
+      {
+        "title": "Sandboxed plugins",
+        "description": "Plugins run sandboxed: only predefined actions, no arbitrary code execution and no web requests."
+      },
+      { "title": "Cloud sync", "description": "Planned: keep your mod setup in sync across all your devices." }
+    ]
+  },
+  "install": {
+    "pageTitle": "Install",
+    "title": "Install",
+    "subtitle": "Grab the latest build, then follow the steps for your platform. All downloads come from the official GitHub releases page.",
+    "olderVersions": "Looking for older versions? Browse the",
+    "fullReleaseHistory": "full release history on GitHub",
+    "platforms": [
+      {
+        "name": "Windows",
+        "steps": [
+          "Download the latest Windows installer (.exe) from the GitHub releases page.",
+          "Run the installer and follow the on-screen steps.",
+          "Launch Universal Mod Manager from the Start menu."
+        ]
+      },
+      {
+        "name": "macOS",
+        "steps": [
+          "Download the latest macOS package (.dmg) from the GitHub releases page.",
+          "Open the .dmg and drag the app into your Applications folder.",
+          "Launch it from Applications (allow it in System Settings on first run if prompted)."
+        ]
+      },
+      {
+        "name": "Linux",
+        "steps": [
+          "Download the latest Linux build (AppImage) from the GitHub releases page.",
+          "Make it executable: chmod +x Universal-Mod-Manager.AppImage",
+          "Run it: ./Universal-Mod-Manager.AppImage"
+        ]
+      },
+      {
+        "name": "Steam Deck",
+        "steps": [
+          "Switch to Desktop Mode.",
+          "Download the latest Linux build (AppImage) from the GitHub releases page.",
+          "Make it executable, run it, then add it to Steam as a non-Steam game for Gaming Mode."
+        ]
+      }
+    ]
+  },
+  "security": {
+    "pageTitle": "Security",
+    "title": "Security",
+    "subtitle": "Universal Mod Manager is built to be trustworthy. Here's how.",
+    "ctaTitle": "Read the code yourself",
+    "ctaSubtitle": "It's all open on GitHub.",
+    "viewSource": "View source",
+    "points": [
+      {
+        "title": "Open source",
+        "description": "The full source code is public on GitHub. Anyone can read, audit and verify exactly what the app does. Nothing is hidden."
+      },
+      {
+        "title": "Verified downloads",
+        "description": "Every build is published through official GitHub releases, so you always know a download comes from us and has not been tampered with."
+      },
+      {
+        "title": "Sandboxed plugins",
+        "description": "Game support comes from plugins that run sandboxed: they can only perform a fixed set of predefined actions, with no arbitrary code execution and no web requests."
+      }
+    ]
+  },
+  "download": {
+    "download": "Download",
+    "comingSoon": "Coming soon, watch releases"
+  },
+  "changelog": {
+    "viewFullChangelog": "View full changelog on GitHub",
+    "noRelease": "No release published yet.",
+    "followReleases": "Follow releases on GitHub"
+  }
+}

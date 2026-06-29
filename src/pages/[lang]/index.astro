@@ -1,0 +1,92 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Button from '~/components/ui/Button.astro';
+import DownloadButton from '~/components/DownloadButton.astro';
+import Changelog from '~/components/Changelog.astro';
+
+import { URLS, FEATURE_ICONS } from '~/data/site';
+import { getLatestRelease } from '~/lib/github';
+import { locales, getLocale } from '~/i18n';
+import type { Locale } from '~/i18n';
+
+export async function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const loc = getLocale(lang);
+const release = await getLatestRelease();
+
+const highlights = loc.features.items.slice(0, 6).map((item, i) => ({
+  ...item,
+  icon: FEATURE_ICONS[i],
+}));
+
+const metadata = {
+  title: 'Universal Mod Manager: one mod manager for every game',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline={loc.hero.tagline}>
+    <Fragment slot="title">
+      {loc.hero.titlePart1}{' '}
+      <span class="text-accent">{loc.hero.titleAccent}</span>{loc.hero.titlePart2}
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      {loc.hero.subtitle}
+    </Fragment>
+
+    <div slot="actions" class="flex flex-wrap justify-center gap-4">
+      <DownloadButton
+        release={release}
+        downloadLabel={loc.download.download}
+        comingSoonLabel={loc.download.comingSoon}
+      />
+      <Button variant="secondary" href={URLS.repo} target="_blank" icon="tabler:brand-github">
+        {loc.hero.viewOnGithub}
+      </Button>
+    </div>
+  </Hero>
+
+  <Features
+    id="features"
+    title={loc.home.featuresTitle}
+    subtitle={loc.home.featuresSubtitle}
+    columns={3}
+    items={highlights}
+  />
+
+  <section class="mx-auto max-w-5xl px-4 py-12 sm:px-6">
+    <div class="mb-6">
+      <h2 class="text-3xl font-bold tracking-tight">{loc.home.latestRelease}</h2>
+      <p class="mt-2 text-muted">{loc.home.latestReleaseSubtitle}</p>
+    </div>
+    <Changelog
+      release={release}
+      lang={lang}
+      viewChangelogLabel={loc.changelog.viewFullChangelog}
+      noReleaseLabel={loc.changelog.noRelease}
+      followReleasesLabel={loc.changelog.followReleases}
+    />
+    <a href={`/${lang}/features`} class="mt-6 inline-block text-sm text-primary hover:underline">
+      {loc.home.seeAllFeatures} →
+    </a>
+  </section>
+
+  <CallToAction title={loc.home.ctaTitle} subtitle={loc.home.ctaSubtitle}>
+    <div slot="actions" class="flex flex-wrap items-center justify-center gap-4">
+      <DownloadButton
+        release={release}
+        downloadLabel={loc.download.download}
+        comingSoonLabel={loc.download.comingSoon}
+      />
+      <Button variant="link" href={`/${lang}/security`}>{loc.home.whyItsSafe} →</Button>
+    </div>
+  </CallToAction>
+</Layout>

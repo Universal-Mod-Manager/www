@@ -5,12 +5,23 @@ import { URLS } from '~/data/site';
 
 interface Props {
   release: Release | null;
+  lang?: string;
+  viewChangelogLabel?: string;
+  noReleaseLabel?: string;
+  followReleasesLabel?: string;
 }
 
-const { release } = Astro.props;
+const {
+  release,
+  lang = 'en',
+  viewChangelogLabel = 'View full changelog on GitHub',
+  noReleaseLabel = 'No release published yet.',
+  followReleasesLabel = 'Follow releases on GitHub',
+} = Astro.props;
 
+const dateLocale = lang === 'fr' ? 'fr-FR' : 'en-GB';
 const date = release?.publishedAt
-  ? new Date(release.publishedAt).toLocaleDateString('en-GB', {
+  ? new Date(release.publishedAt).toLocaleDateString(dateLocale, {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -35,20 +46,20 @@ const date = release?.publishedAt
           rel="noopener noreferrer"
           class="mt-4 inline-flex items-center gap-1 text-sm text-primary hover:underline"
         >
-          View full changelog on GitHub
+          {viewChangelogLabel}
           <Icon name="tabler:external-link" class="h-4 w-4" />
         </a>
       </>
     ) : (
       <>
-        <p class="text-muted">No release published yet.</p>
+        <p class="text-muted">{noReleaseLabel}</p>
         <a
           href={URLS.releases}
           target="_blank"
           rel="noopener noreferrer"
           class="mt-2 inline-flex items-center gap-1 text-sm text-primary hover:underline"
         >
-          Follow releases on GitHub
+          {followReleasesLabel}
           <Icon name="tabler:external-link" class="h-4 w-4" />
         </a>
       </>

@@ -1,64 +1,8 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/components/widgets/Features.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Button from '~/components/ui/Button.astro';
-import DownloadButton from '~/components/DownloadButton.astro';
-import Changelog from '~/components/Changelog.astro';
 
-import { FEATURES, TAGLINE, URLS } from '~/data/site';
-import { getLatestRelease } from '~/lib/github';
-
-const release = await getLatestRelease();
-const highlights = FEATURES.slice(0, 6);
-
-const metadata = {
-  title: 'Universal Mod Manager: one mod manager for every game',
-  ignoreTitleTemplate: true,
-};
 ---
 
-<Layout metadata={metadata}>
-  <Hero tagline="Universal Mod Manager">
-    <Fragment slot="title">
-      One mod manager for <span class="text-accent">every game</span>, on every platform
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      {TAGLINE} Organise, enable and reorder your mods per game on Windows, macOS, Linux and Steam Deck. Open source and free.
-    </Fragment>
-
-    <div slot="actions" class="flex flex-wrap justify-center gap-4">
-      <DownloadButton release={release} />
-      <Button variant="secondary" href={URLS.repo} target="_blank" icon="tabler:brand-github">View on GitHub</Button>
-    </div>
-  </Hero>
-
-  <Features
-    id="features"
-    title="What it does"
-    subtitle="Everything you need to keep your mods organised, in one place."
-    columns={3}
-    items={[...highlights]}
-  />
-
-  <section class="mx-auto max-w-5xl px-4 py-12 sm:px-6">
-    <div class="mb-6">
-      <h2 class="text-3xl font-bold tracking-tight">Latest release</h2>
-      <p class="mt-2 text-muted">See what changed in the most recent version.</p>
-    </div>
-    <Changelog release={release} />
-    <a href="/features" class="mt-6 inline-block text-sm text-primary hover:underline">See all features →</a>
-  </section>
-
-  <CallToAction
-    title="Ready to tidy up your mods?"
-    subtitle="Open source, verifiable and published through GitHub releases."
-  >
-    <div slot="actions" class="flex flex-wrap items-center justify-center gap-4">
-      <DownloadButton release={release} />
-      <Button variant="link" href="/security">Why it's safe →</Button>
-    </div>
-  </CallToAction>
-</Layout>
+<script is:inline>
+  const preferred = (navigator.languages || [navigator.language]).find((l) => l.startsWith('fr'));
+  window.location.replace(preferred ? '/fr' : '/en');
+</script>
