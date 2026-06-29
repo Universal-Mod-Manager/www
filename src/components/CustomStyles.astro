@@ -16,13 +16,25 @@ import '@fontsource-variable/inter';
     --aw-color-text-default: var(--umm-text);
     --aw-color-text-muted: var(--umm-text-secondary);
     --aw-color-bg-page: var(--umm-bg);
-    --aw-color-bg-page-dark: var(--umm-bg);
+    --aw-color-bg-page-dark: rgb(3 6 32);
 
     --ui-radius: var(--umm-radius-md);
     --ui-btn-radius: var(--umm-radius-md);
 
     ::selection {
       background-color: var(--umm-primary-tint);
+    }
+  }
+
+  .dark {
+    --aw-color-text-heading: rgb(247, 248, 248);
+    --aw-color-text-default: rgb(229 236 246);
+    --aw-color-text-muted: rgb(229 236 246 / 66%);
+    --aw-color-bg-page: rgb(3 6 32);
+
+    ::selection {
+      background-color: black;
+      color: snow;
     }
   }
 </style>

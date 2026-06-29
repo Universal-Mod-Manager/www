@@ -1,0 +1,82 @@
+---
+import { Icon } from 'astro-icon/components';
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import type { Widget } from '~/types';
+
+interface PlatformItem {
+  name: string;
+  icon: string;
+  steps: readonly string[];
+}
+
+interface Props extends Widget {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  items?: readonly PlatformItem[];
+  columns?: number;
+}
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  items = [],
+  columns = 2,
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+
+const columnsClass =
+  columns === 4
+    ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
+    : columns === 3
+      ? 'lg:grid-cols-3 sm:grid-cols-2'
+      : columns === 2
+        ? 'sm:grid-cols-2'
+        : '';
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
+
+  {
+    Astro.slots.has('actions') && (
+      <div class="-mt-4 mb-8 flex justify-center md:-mt-8 md:mb-12">
+        <slot name="actions" />
+      </div>
+    )
+  }
+
+  {
+    items.length > 0 && (
+      <div class:list={['grid gap-4 md:gap-6', columnsClass]}>
+        {items.map((platform) => (
+          <div class="relative flex flex-col rounded-lg border border-[#ffffff29] bg-white p-6 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur intersect-once intersect-quarter intersect-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade dark:bg-slate-900 dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+            <h3 class="flex items-center gap-2 text-xl font-bold">
+              <Icon name={platform.icon} class="h-5 w-5 text-primary" />
+              {platform.name}
+            </h3>
+            <ol class="mt-3 list-decimal space-y-2 pl-5 text-muted">
+              {platform.steps.map((step) => (
+                <li>{step}</li>
+              ))}
+            </ol>
+          </div>
+        ))}
+      </div>
+    )
+  }
+
+  {
+    Astro.slots.has('default') && (
+      <div class="mt-8 text-center text-muted">
+        <slot />
+      </div>
+    )
+  }
+</WidgetWrapper>
