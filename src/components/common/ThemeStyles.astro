@@ -2,7 +2,10 @@
 import { THEMES } from '~/data/themes';
 
 const css = THEMES.filter((theme) => theme.css)
-  .map((theme) => theme.css.replace(/:root\b/g, `html[data-theme='${theme.id}']`))
+  .map((theme) => {
+    const scope = `html[data-theme='${theme.id}']`;
+    return theme.css.replace(/:root\b/g, scope).replace(/^(body|html)\s*\{/gm, `${scope} $1 {`);
+  })
   .join('\n');
 ---
 
