@@ -16,6 +16,7 @@ import { THEMES, THEME_STORAGE_KEY, DEFAULT_THEME } from '~/data/themes';
     if (!select) return;
     select.value = document.documentElement.dataset.theme || localStorage.getItem(storageKey) || fallback;
     select.addEventListener('change', () => {
+      if (typeof Observer !== 'undefined') Observer.removeAnimationDelay();
       document.documentElement.dataset.theme = select.value;
       localStorage.setItem(storageKey, select.value);
     });
