@@ -1,6 +1,5 @@
 services:
   astrowind:
     build: .
-    container_name: astrowind
     expose:
       - '8080'
