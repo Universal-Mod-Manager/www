@@ -56,7 +56,10 @@ const columnsClass =
     items.length > 0 && (
       <div class:list={['grid gap-4 md:gap-6', columnsClass]}>
         {items.map((platform) => (
-          <div class="relative flex flex-col rounded-lg border border-[#ffffff29] bg-white p-6 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur intersect-once intersect-quarter intersect-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade dark:bg-slate-900 dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+          <div
+            class="relative flex flex-col rounded-lg border p-6 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur intersect-once intersect-quarter intersect-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
+            style="background-color: var(--aw-color-bg-surface); border-color: var(--aw-color-border)"
+          >
             <h3 class="flex items-center gap-2 text-xl font-bold">
               <Icon name={platform.icon} class="h-5 w-5 text-primary" />
               {platform.name}

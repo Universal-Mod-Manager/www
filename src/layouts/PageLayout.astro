@@ -20,7 +20,7 @@ const lang = isLocale(pathSegments[0]) ? pathSegments[0] : defaultLocale;
 
 <Layout metadata={metadata} lang={lang}>
   <slot name="header">
-    <Header {...getHeaderData(lang)} isSticky showToggleTheme showThemeSwitcher showLanguageSwitcher />
+    <Header {...getHeaderData(lang)} isSticky showThemeSwitcher showLanguageSwitcher />
   </slot>
   <main>
     <slot />
