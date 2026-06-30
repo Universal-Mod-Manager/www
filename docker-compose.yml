@@ -3,4 +3,4 @@ services:
     build: .
     container_name: astrowind
     expose:
-      - "8080"
+      - '8080'
