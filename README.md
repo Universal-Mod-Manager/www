@@ -3,8 +3,14 @@
 The showcase / landing website for **Universal Mod Manager (UMM)**, a cross-platform desktop
 mod manager for Windows, macOS, Linux and Steam Deck.
 
-This site introduces the project and points users to the app's downloads. It does not host the
-binaries. Those live on the desktop app's GitHub releases.
+## What this site covers
+
+- **Home** — project overview, key features, and latest release notes pulled from GitHub at build time
+- **Features** — full feature list: per-game mod lists, enable/disable, drag-and-drop reordering, plugin-per-game architecture, themes, sandboxed plugins, and planned cloud sync
+- **Install** — step-by-step setup instructions for Windows, macOS, Linux, and Steam Deck
+- **Security** — why UMM is trustworthy: open source, verified GitHub releases, sandboxed plugins
+
+The site links to the desktop app's GitHub releases for downloads. It does not host any binaries.
 
 - Desktop app: [Universal-Mod-Manager/desktop](https://github.com/Universal-Mod-Manager/desktop)
 
@@ -25,6 +31,4 @@ TypeScript · Tailwind CSS v4 · pnpm. Requires **Node ≥ 22.12**.
 
 ## More
 
-See [CLAUDE.md](CLAUDE.md) for architecture and conventions, and
-[user-stories.md](user-stories.md) for requirements. Template credit: AstroWind
-([LICENSE.md](LICENSE.md), MIT).
+Template credit: AstroWind ([LICENSE.md](LICENSE.md), MIT).
